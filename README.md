@@ -106,8 +106,8 @@
 <br>
 
 <li>
-<a href="mailto:iamumersani@gmail.com" target="_blank">
-<img src="![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)" />
+<a href="https://twitter.com/0xabdulkhalid" target="_blank">
+<img src="![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)" alt=twitter style="margin-bottom: 5px;"/>
 </a>
 </li>
 *Extras**:
