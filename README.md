@@ -107,8 +107,8 @@
 <br>
  <b> If you are looking to catch me in-game 😉</b>
 <p align="center">
-  <a href="https://discordapp.com/users/godblessusani" target="_blank"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" width="120" height="40"></a>
-  <a href="https://steamcommunity.com/profiles/76561198965901738/" target="_blank"><img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" alt="Steam" width="120" height="40"></a>
+  <a href="https://discordapp.com/users/godblessusani" target="_blank"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://steamcommunity.com/profiles/76561198965901738/" target="_blank"><img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" alt="Steam" ></a>
   </p>
 
 
