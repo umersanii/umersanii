@@ -94,24 +94,19 @@
 <ul>
 
 <!--icons and links-->
-## <b> Let's Connect..!</b><img src="https://github.com/0xAbdulKhalid/0xAbdulKhalid/raw/main/assets/mdImages/handshake.gif" width="80">
-<br>
-<div align='left'>
-
 <!--buttons-->
 <p align="center">
-  <a href="https://www.linkedin.com/in/umer-s2221/" target="_blank"><img src="linkedin-button-icon.png" alt="LinkedIn" width="120" height="40"></a>
-  <a href="mailto:iamumcom" target="_blank"><img src="gmail-button-icon.png" alt="Gmail" width="120" height="40"></a>
-  <a href="https://discordapp.com/users/YourDiscordID" target="_blank"><img src="discord-button-icon.png" alt="Discord" width="120" height="40"></a>
-  <a href="https://steamcommunity.com/id/YourSteamID" target="_blank"><img src="steam-button-icon.png" alt="Steam" width="120" height="40"></a>
+  <a href="https://www.linkedin.com/in/umer-sani-656372221/" target="blank"><img align="center" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin" /></a>
+  <a href="mailto:iamumersani@gmail.com" target="blank"><img align="center" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="gmail"  /></a>
+  <a href="https://discordapp.com/users/godblessusani" target="_blank"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" width="120" height="40"></a>
+  <a href="https://steamcommunity.com/profiles/76561198965901738/" target="_blank"><img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" alt="Steam" width="120" height="40"></a>
 </p>
 
 </div>
 
 <br>
 <br>
-
-If you are looking to catch me in-game, feel free to add me on Discord or Steam:
+## <b> If you are looking to catch me in-game 😉</b>
 
 - Discord ID: YourDiscordID#1234
 - Steam ID: YourSteamID
