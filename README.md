@@ -8,7 +8,6 @@
 
 <br>
 
-[![Sani's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=umersanii)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 	
 ## <picture><img src = "https://github.com/0xAbdulKhalid/0xAbdulKhalid/raw/main/assets/mdImages/about_me.gif" width = 50px></picture> **About me**
