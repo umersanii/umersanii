@@ -94,7 +94,6 @@
 
 ![contribution-graph](https://github-readme-activity-graph.vercel.app/graph?username=umersanii&bg_color=12111d&color=ffffff&line=1055e0&point=00ff11&area=true&hide_border=true)
 
-![activity-graph](https://cr-skills-chart-widget.azurewebsites.net/api/api?username=umersanii)
 
 
 <br>
