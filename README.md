@@ -97,5 +97,3 @@
   <a href="https://discordapp.com/users/godblessusani" target="_blank"><img align="centre" src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
   <a href="https://steamcommunity.com/profiles/76561198965901738/" target="_blank"><img align="centre" src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" alt="Steam" ></a>
 </p>
-
-## <b>السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ...
