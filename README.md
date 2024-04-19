@@ -37,7 +37,6 @@ def Ambitions():
 
 </details>
 
----
 
 <br />
 
@@ -63,8 +62,8 @@ def Ambitions():
 </a>
 
 </details>
+<br />
 
 ---
 
-<br />
 
