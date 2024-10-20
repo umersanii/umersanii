@@ -11,9 +11,6 @@ class WhoAmI:
     hobbies = ['Typing', 'Gaming']
     fun_fact = "I am Batman 🦇"
 	
-def Ambitions():
-    CompleteDegreeinDueTime()
-    FinishMyProjects()
 	
  ```
 <br />
