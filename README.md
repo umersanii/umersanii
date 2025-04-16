@@ -7,8 +7,6 @@
 class WhoAmI:
     user = 'Umer Sani'
     current_edu = "BS - CS"
-    currently_learning = "AI"
-    hobbies = ['Typing', 'Gaming']
 	
 	
  ```
