@@ -1,63 +1,42 @@
+
+
 [comment]: <> (View Counter)
 <p align="middle"> <img src="https://komarev.com/ghpvc/?username=umersanii&label=Visits&color=00FFFF&style=flat" alt="daenges" /> </p>
 
-## Who am I?
 
- ```python
-class WhoAmI:
-    user = 'Umer Sani'
-    current_edu = "BS - CS"
-	
-	
- ```
-<br />
+```python
+class Sani:
+    def __init__(self):
+        self.username = "Umer Sani"
+        self.education = "BS Computer Science"
+        self.hobbies = ["Gaming", "Working Out", "Procastinating"]
+        self.skills = [
+            "Python",
+            "C++",
+            "C",
+            "Git",
+            "ChatGPT", #YES!
+        ]
+        self.fun_fact = "I write code that works... eventually, maybe"
+        self.links = {
+            "Discord": "https://discord.gg/d3eqSYmhyB",
+            "Gmail": "mailto:iamumersani@gmail.com",
+            "Steam": "https://steamcommunity.com/profiles/76561198965901738/",
+            "LinkedIn": "https://www.linkedin.com/in/umer-sani-656372221/"
+        }
 
+        self.stats = self.fetch_stats()
 
-
-[comment]: <> (Extend Catistics)
-<details>
-
-[comment]: <> (Most used languages)
-<summary align="left">Most Used Languages</summary>
-<br />
-<p align="center" >
-<img style="margin-right: 10px;" />
-<img height="38" width="38" src="https://cdn.simpleicons.org/cplusplus/cyan" style="margin-right: 10px;" />
-<img height="38" width="38" src="https://cdn.simpleicons.org/c/cyan" style="margin-right: 10px;" />
-<img height="38" width="38" src="https://cdn.simpleicons.org/cplusplus/cyan" style="margin-right: 10px;" />
-<img height="38" width="38" src="https://cdn.simpleicons.org/python/cyan" />
-
-</p>
-
-</details>
-
-
-<br />
-
-[comment]: <> (Extend Catistics)
-<details>
-
-[comment]: <> (Connections)
-<summary align="left">Connections</summary>
-<br />
-<p align="center" >
-<img style="margin-right: 10px;" />
-<a href="https://discord.gg/d3eqSYmhyB" target="_blank">
-  <img height="38" width="38" src="https://cdn.simpleicons.org/discord/cyan" style="margin-right: 10px;" alt="Discord Icon" />
-</a>
-<a href="mailto:iamumersani@gmail.com" target="_blank">
-  <img height="38" width="38" src="https://cdn.simpleicons.org/gmail/cyan" style="margin-right: 10px;" alt="Gmail Icon" />
-</a>
-<a href="https://steamcommunity.com/profiles/76561198965901738/" target="_blank">
-  <img height="38" width="38" src="https://cdn.simpleicons.org/steam/cyan" style="margin-right: 10px;" alt="Steam Icon" />
-</a>
-<a href="https://www.linkedin.com/in/umer-sani-656372221/" target="_blank">
-  <img height="38" width="38" src="https://cdn.simpleicons.org/linkedin/cyan" alt="LinkedIn Icon" />
-</a>
-
-</details>
-<br />
-
----
+    def fetch_stats(self):
+        stats = {
+            "total_repos": 0,
+            "total_stars": 0,
+            "total_commits": 0,
+            "total_pull_requests": 0,
+            "total_issues": 0,
+            "total_followers": 0
+        }
+        return stats
 
 
+```
