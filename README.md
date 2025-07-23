@@ -29,12 +29,12 @@ class Sani:
 
     def fetch_stats(self):
         stats = {
-            "total_repos": 0,
-            "total_stars": 0,
-            "total_commits": 0,
-            "total_pull_requests": 0,
-            "total_issues": 0,
-            "total_followers": 0
+            "total_repos": 20,
+            "total_stars": 13,
+            "total_commits": 323,
+            "total_pull_requests": 13,
+            "total_issues": 1,
+            "total_followers": 8
         }
         return stats
 
