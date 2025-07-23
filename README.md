@@ -1,56 +1,56 @@
-
-
 [comment]: <> (View Counter)
 <p align="middle"> <img src="https://komarev.com/ghpvc/?username=umersanii&label=Visits&color=00FFFF&style=flat" alt="daenges" /> </p>
-
 
 ```python
 class Sani:
     def __init__(self):
-        self.username = "Umer Sani"
-        self.education = "BS Computer Science"
-        self.hobbies = ["Gaming", "Working Out", "Procastinating"]
+        self.name = "Umer Sani 🧑‍💻"
+        self.education = "BS Computer Science 🎓"
+        # Hobbies: the perfect work-life-procrastination balance
+        self.hobbies = ["🎮 Gaming", "🏋️‍♂️ Working Out", "😅 Procrastinating"]
+        # Skills: powered by caffeine and late nights
         self.skills = [
-            "Python",
-            "C++",
-            "C",
-            "Git",
-            "ChatGPT", #YES!
+            "🐍 Python",
+            "💻 C++",
+            "⚙️ C",
+            "🌲 Git",
+            "🤖 ChatGPT", # YES!
         ]
-        self.fun_fact = "I write code that works... eventually, maybe"
+        self.fun_fact = "I write code that works... eventually, maybe 🐞"
+        # Social links: where you can find me (or send memes)
         self.links = {
-            "Discord": "https://discord.gg/d3eqSYmhyB",
-            "Gmail": "mailto:iamumersani@gmail.com",
-            "Steam": "https://steamcommunity.com/profiles/76561198965901738/",
-            "LinkedIn": "https://www.linkedin.com/in/umer-sani-656372221/"
+            "💬 Discord": "https://discord.gg/d3eqSYmhyB",
+            "📧 Gmail": "mailto:iamumersani@gmail.com",
+            "🎮 Steam": "https://steamcommunity.com/profiles/76561198965901738/",
+            "🔗 LinkedIn": "https://www.linkedin.com/in/umer-sani-656372221/"
         }
 
-        self.stats = self.fetch_stats()
+        self.stats = self.fetch_stats()  
 
     def fetch_stats(self):
+        # (100% accurate, trust me bro)
         stats = {
             "total_repos": 20,
             "total_stars": 13,
             "total_commits": 323,
             "total_pull_requests": 13,
             "total_issues": 1,
-            "most_starred_repo": "PakMan",
-            "most_recent_repo": "umersanii",
-            "top_language": "Python",
+            "most_starred_repo": "PakMan ⭐",
+            "most_recent_repo": "umersanii 🆕",
+            "top_language": "Python 🐍",
             "days_since_last_activity": 0
         }
         return stats
 
     def get_coding_habits(self):
-        # When does the magic happen? 🎭
+        # Coding habits: powered by midnight snacks and existential dread
         habits = {
-            "favorite_coding_hour": "23:00",  # Night owl status confirmed
-            "most_productive_day": "Sunday",  # Weekend warrior
-            "commit_streak": "7 days",        # Current streak
-            "coffee_dependency": "High",       # Estimated caffeine requirement
-            "debug_efficiency": "Eventually", # How fast bugs get squashed
+            "favorite_coding_hour": "23:00 🌙",      # Night owl status confirmed
+            "most_productive_day": "Sunday ☀️",     # Because deadlines exist
+            "commit_streak": "7 days 🔥",           # Fueled by coffee and panic
+            "coffee_dependency": "High ☕",          # Estimated caffeine requirement
+            "debug_efficiency": "Eventually 🐛🔨",   
         }
         return habits
-
 
 ```
