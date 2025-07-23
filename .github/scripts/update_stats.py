@@ -45,9 +45,23 @@ total_commits = 0
 total_pull_requests = 0
 total_issues = 0
 
+# Additional stats for enhanced profile
+languages = {}
+most_starred_repo = {"name": "", "stars": 0}
+most_recent_repo = {"name": "", "updated": None}
+total_repo_size = 0
+
+# Contribution patterns analysis
+commit_hours = {}  # Track commit times
+commit_days = {}   # Track days of week
+recent_commits = 0  # Commits in last 30 days
+all_commit_dates = []  # All commit dates for streak analysis
+
 print("Processing repositories...")
 for i, repo in enumerate(repos, 1):
     print(f"Processing {i}/{len(repos)}: {repo.name}")
+    
+    # Existing stats
     try:
         commits = repo.get_commits(author=USERNAME).totalCount
         total_commits += commits
@@ -66,6 +80,73 @@ for i, repo in enumerate(repos, 1):
         print(f"  Issues: {issues}")
     except Exception as e:
         print(f"  Error getting issues: {e}")
+    
+    # New enhanced stats
+    try:
+        # Track most starred repository
+        if repo.stargazers_count > most_starred_repo["stars"]:
+            most_starred_repo = {"name": repo.name, "stars": repo.stargazers_count}
+        
+        # Track most recently updated repository
+        if most_recent_repo["updated"] is None or repo.updated_at > most_recent_repo["updated"]:
+            most_recent_repo = {"name": repo.name, "updated": repo.updated_at}
+        
+        # Track repository size
+        total_repo_size += repo.size
+        
+        # Track programming languages
+        repo_languages = repo.get_languages()
+        for lang, bytes_count in repo_languages.items():
+            languages[lang] = languages.get(lang, 0) + bytes_count
+        
+        # Analyze commit patterns for contribution habits
+        try:
+            commits_iter = repo.get_commits(author=USERNAME)
+            for commit in commits_iter:
+                commit_date = commit.commit.author.date
+                all_commit_dates.append(commit_date)
+                
+                # Track commit hours (for finding favorite coding time)
+                hour = commit_date.hour
+                commit_hours[hour] = commit_hours.get(hour, 0) + 1
+                
+                # Track commit days (for finding most productive day)
+                day = commit_date.strftime('%A')
+                commit_days[day] = commit_days.get(day, 0) + 1
+                
+                # Count recent commits (last 30 days)
+                from datetime import datetime, timedelta
+                if commit_date > datetime.now(commit_date.tzinfo) - timedelta(days=30):
+                    recent_commits += 1
+                    
+        except Exception as e:
+            print(f"  Error analyzing commit patterns: {e}")
+            
+        print(f"  Updated: {repo.updated_at.strftime('%Y-%m-%d')}")
+        if repo_languages:
+            print(f"  Languages: {', '.join(list(repo_languages.keys())[:3])}")
+            
+    except Exception as e:
+        print(f"  Error getting additional stats: {e}")
+        
+        # Track most recently updated repository
+        if most_recent_repo["updated"] is None or repo.updated_at > most_recent_repo["updated"]:
+            most_recent_repo = {"name": repo.name, "updated": repo.updated_at}
+        
+        # Track repository size
+        total_repo_size += repo.size
+        
+        # Track programming languages
+        repo_languages = repo.get_languages()
+        for lang, bytes_count in repo_languages.items():
+            languages[lang] = languages.get(lang, 0) + bytes_count
+            
+        print(f"  Updated: {repo.updated_at.strftime('%Y-%m-%d')}")
+        if repo_languages:
+            print(f"  Languages: {', '.join(list(repo_languages.keys())[:3])}")
+            
+    except Exception as e:
+        print(f"  Error getting additional stats: {e}")
 
 print(f"\nFinal calculated stats:")
 print(f"Total repos: {total_repos}")
@@ -73,7 +154,55 @@ print(f"Total stars: {total_stars}")
 print(f"Total commits: {total_commits}")
 print(f"Total pull requests: {total_pull_requests}")
 print(f"Total issues: {total_issues}")
-print(f"Total followers: {total_followers}")
+
+# Enhanced stats
+print(f"\nEnhanced stats:")
+print(f"Most starred repo: {most_starred_repo['name']} ({most_starred_repo['stars']} stars)")
+print(f"Most recent work: {most_recent_repo['name']} (updated: {most_recent_repo['updated'].strftime('%Y-%m-%d')})")
+
+# Analyze contribution patterns
+from datetime import datetime, timedelta
+
+# Find favorite coding hour
+favorite_hour = max(commit_hours, key=commit_hours.get) if commit_hours else 0
+favorite_hour_formatted = f"{favorite_hour:02d}:00"
+
+# Find most productive day
+most_productive_day = max(commit_days, key=commit_days.get) if commit_days else "Unknown"
+
+# Calculate days since last activity
+if all_commit_dates:
+    last_commit_date = max(all_commit_dates)
+    days_since_last = (datetime.now(last_commit_date.tzinfo) - last_commit_date).days
+else:
+    days_since_last = 0
+
+# Calculate current streak (simplified version)
+current_streak = min(len(all_commit_dates), 30) if all_commit_dates else 0
+
+# Determine coding personality traits
+coffee_dependency = "High" if favorite_hour >= 20 or favorite_hour <= 6 else "Medium" if favorite_hour >= 18 else "Low"
+debug_efficiency = "Lightning Fast" if total_commits > 500 else "Eventually" if total_commits > 100 else "Still Learning"
+
+print(f"\nCoding Habits Analysis:")
+print(f"Favorite coding hour: {favorite_hour_formatted}")
+print(f"Most productive day: {most_productive_day}")
+print(f"Recent commits (30 days): {recent_commits}")
+print(f"Coffee dependency: {coffee_dependency}")
+print(f"Debug efficiency: {debug_efficiency}")
+print(f"Days since last activity: {days_since_last}")
+
+# Top 3 languages by usage
+if languages:
+    sorted_languages = sorted(languages.items(), key=lambda x: x[1], reverse=True)[:3]
+    print(f"Top languages: {', '.join([f'{lang} ({bytes_count//1000}KB)' for lang, bytes_count in sorted_languages])}")
+
+# Calculate additional metrics
+days_since_last_update = (user.updated_at - most_recent_repo["updated"]).days if most_recent_repo["updated"] else 0
+avg_stars_per_repo = total_stars / total_repos if total_repos > 0 else 0
+
+print(f"Days since last activity: {days_since_last_update}")
+print(f"Average stars per repo: {avg_stars_per_repo:.1f}")
 
 # Update README.md
 print("Updating README.md...")
@@ -95,9 +224,26 @@ pattern = (
     r"\s*\"total_commits\":\s*\d+,\s*\n"
     r"\s*\"total_pull_requests\":\s*\d+,\s*\n"
     r"\s*\"total_issues\":\s*\d+,\s*\n"
-    r"\s*\"total_followers\":\s*\d+\s*\n"
+    r"\s*\"most_starred_repo\":\s*\"[^\"]*\",\s*\n"
+    r"\s*\"most_recent_repo\":\s*\"[^\"]*\",\s*\n"
+    r"\s*\"top_language\":\s*\"[^\"]*\",\s*\n"
+    r"\s*\"days_since_last_activity\":\s*\d+\s*\n"
     r"(\s*\}\s*\n\s*return stats)"
 )
+
+# Pattern to match the get_coding_habits function
+habits_pattern = (
+    r"(def get_coding_habits\(self\):\s*\n\s*#[^\n]*\n\s*habits\s*=\s*\{\s*\n)"
+    r"\s*\"favorite_coding_hour\":\s*\"[^\"]*\",\s*#[^\n]*\n"
+    r"\s*\"most_productive_day\":\s*\"[^\"]*\",\s*#[^\n]*\n"
+    r"\s*\"commit_streak\":\s*\"[^\"]*\",\s*#[^\n]*\n"
+    r"\s*\"coffee_dependency\":\s*\"[^\"]*\",\s*#[^\n]*\n"
+    r"\s*\"debug_efficiency\":\s*\"[^\"]*\",\s*#[^\n]*\n"
+    r"(\s*\}\s*\n\s*return habits)"
+)
+
+# Calculate the enhanced stats
+top_language = max(languages.items(), key=lambda x: x[1])[0] if languages else "Unknown"
 
 replacement = (
     f'def fetch_stats(self):\n'
@@ -107,12 +253,33 @@ replacement = (
     f'            "total_commits": {total_commits},\n'
     f'            "total_pull_requests": {total_pull_requests},\n'
     f'            "total_issues": {total_issues},\n'
-    f'            "total_followers": {total_followers}\n'
+    f'            "most_starred_repo": "{most_starred_repo["name"]}",\n'
+    f'            "most_recent_repo": "{most_recent_repo["name"]}",\n'
+    f'            "top_language": "{top_language}",\n'
+    f'            "days_since_last_activity": {days_since_last}\n'
     f'        }}\n'
     f'        return stats'
 )
 
+# Prepare habits replacement
+streak_days = f"{current_streak} days" if current_streak > 0 else "Building momentum"
+habits_replacement = (
+    f'def get_coding_habits(self):\n'
+    f'        # When does the magic happen? 🎭\n'
+    f'        habits = {{\n'
+    f'            "favorite_coding_hour": "{favorite_hour_formatted}",  # Night owl status confirmed\n'
+    f'            "most_productive_day": "{most_productive_day}",  # Weekend warrior\n'
+    f'            "commit_streak": "{streak_days}",        # Current streak\n'
+    f'            "coffee_dependency": "{coffee_dependency}",       # Estimated caffeine requirement\n'
+    f'            "debug_efficiency": "{debug_efficiency}", # How fast bugs get squashed\n'
+    f'        }}\n'
+    f'        return habits'
+)
+
 new_content = re.sub(pattern, replacement, content, flags=re.MULTILINE)
+
+# Also update the coding habits function
+new_content = re.sub(habits_pattern, habits_replacement, new_content, flags=re.MULTILINE)
 
 # Check if the replacement was successful
 if new_content == content:

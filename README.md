@@ -34,9 +34,23 @@ class Sani:
             "total_commits": 323,
             "total_pull_requests": 13,
             "total_issues": 1,
-            "total_followers": 8
+            "most_starred_repo": "PakMan",
+            "most_recent_repo": "umersanii",
+            "top_language": "Python",
+            "days_since_last_activity": 0
         }
         return stats
+
+    def get_coding_habits(self):
+        # When does the magic happen? 🎭
+        habits = {
+            "favorite_coding_hour": "23:00",  # Night owl status confirmed
+            "most_productive_day": "Sunday",  # Weekend warrior
+            "commit_streak": "7 days",        # Current streak
+            "coffee_dependency": "High",       # Estimated caffeine requirement
+            "debug_efficiency": "Eventually", # How fast bugs get squashed
+        }
+        return habits
 
 
 ```
