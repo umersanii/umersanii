@@ -216,37 +216,11 @@ except Exception as e:
     print(f"Error reading README.md: {e}")
     exit(1)
 
-# Pattern to match the stats dict inside fetch_stats method
-pattern = (
-    r"(def fetch_stats\(self\):\s*\n\s*stats\s*=\s*\{\s*\n)"
-    r"\s*\"total_repos\":\s*\d+,\s*\n"
-    r"\s*\"total_stars\":\s*\d+,\s*\n"
-    r"\s*\"total_commits\":\s*\d+,\s*\n"
-    r"\s*\"total_pull_requests\":\s*\d+,\s*\n"
-    r"\s*\"total_issues\":\s*\d+,\s*\n"
-    r"\s*\"most_starred_repo\":\s*\"[^\"]*\",\s*\n"
-    r"\s*\"most_recent_repo\":\s*\"[^\"]*\",\s*\n"
-    r"\s*\"top_language\":\s*\"[^\"]*\",\s*\n"
-    r"\s*\"days_since_last_activity\":\s*\d+\s*\n"
-    r"(\s*\}\s*\n\s*return stats)"
-)
-
-# Pattern to match the get_coding_habits function
-habits_pattern = (
-    r"(def get_coding_habits\(self\):\s*\n\s*#[^\n]*\n\s*habits\s*=\s*\{\s*\n)"
-    r"\s*\"favorite_coding_hour\":\s*\"[^\"]*\",\s*#[^\n]*\n"
-    r"\s*\"most_productive_day\":\s*\"[^\"]*\",\s*#[^\n]*\n"
-    r"\s*\"commit_streak\":\s*\"[^\"]*\",\s*#[^\n]*\n"
-    r"\s*\"coffee_dependency\":\s*\"[^\"]*\",\s*#[^\n]*\n"
-    r"\s*\"debug_efficiency\":\s*\"[^\"]*\",\s*#[^\n]*\n"
-    r"(\s*\}\s*\n\s*return habits)"
-)
-
-# Calculate the enhanced stats
-top_language = max(languages.items(), key=lambda x: x[1])[0] if languages else "Unknown"
-
-replacement = (
+# Flexible pattern: replace only the dictionary inside fetch_stats
+stats_dict_pattern = r"(def fetch_stats\(self\):[\s\S]*?stats\s*=\s*\{)[\s\S]*?(\}\s*return stats)"
+stats_dict_replacement = (
     f'def fetch_stats(self):\n'
+    f'        # (100% accurate, trust me bro)\n'
     f'        stats = {{\n'
     f'            "total_repos": {total_repos},\n'
     f'            "total_stars": {total_stars},\n'
@@ -255,50 +229,50 @@ replacement = (
     f'            "total_issues": {total_issues},\n'
     f'            "most_starred_repo": "{most_starred_repo["name"]}",\n'
     f'            "most_recent_repo": "{most_recent_repo["name"]}",\n'
-    f'            "top_language": "{top_language}",\n'
+    f'            "top_language": "{sorted_languages[0][0] if languages else "Unknown"}",\n'
     f'            "days_since_last_activity": {days_since_last}\n'
     f'        }}\n'
     f'        return stats'
 )
 
-# Prepare habits replacement
+new_content = re.sub(stats_dict_pattern, stats_dict_replacement, content, flags=re.MULTILINE)
+
+# Flexible pattern: replace only the dictionary inside get_coding_habits
+habits_dict_pattern = r"(def get_coding_habits\(self\):[\s\S]*?habits\s*=\s*\{)[\s\S]*?(\}\s*return habits)"
 streak_days = f"{current_streak} days" if current_streak > 0 else "Building momentum"
-habits_replacement = (
+habits_dict_replacement = (
     f'def get_coding_habits(self):\n'
-    f'        # When does the magic happen? 🎭\n'
+    f'        # Coding habits: powered by midnight snacks and existential dread\n'
     f'        habits = {{\n'
-    f'            "favorite_coding_hour": "{favorite_hour_formatted}",  # Night owl status confirmed\n'
-    f'            "most_productive_day": "{most_productive_day}",  # Weekend warrior\n'
-    f'            "commit_streak": "{streak_days}",        # Current streak\n'
-    f'            "coffee_dependency": "{coffee_dependency}",       # Estimated caffeine requirement\n'
-    f'            "debug_efficiency": "{debug_efficiency}", # How fast bugs get squashed\n'
+    f'            "favorite_coding_hour": "{favorite_hour_formatted}",      # Night owl status confirmed\n'
+    f'            "most_productive_day": "{most_productive_day}",     # Because deadlines exist\n'
+    f'            "commit_streak": "{streak_days}",           # Fueled by coffee and panic\n'
+    f'            "coffee_dependency": "{coffee_dependency}",          # Estimated caffeine requirement\n'
+    f'            "debug_efficiency": "{debug_efficiency}",   \n'
     f'        }}\n'
     f'        return habits'
 )
 
-new_content = re.sub(pattern, replacement, content, flags=re.MULTILINE)
+new_content2 = re.sub(habits_dict_pattern, habits_dict_replacement, new_content, flags=re.MULTILINE)
 
-# Also update the coding habits function
-new_content = re.sub(habits_pattern, habits_replacement, new_content, flags=re.MULTILINE)
-
-# Check if the replacement was successful
-if new_content == content:
-    print("Warning: No replacement made. Pattern might not match.")
+if new_content2 == content:
+    print("Error: No replacement made. Patterns might not match your README.md methods.")
     # Print the relevant section for debugging
-    if "fetch_stats" in content:
-        start = content.find("def fetch_stats")
-        end = content.find("return stats", start) + len("return stats")
-        print("Found fetch_stats section:")
-        print(content[start:end])
-    else:
-        print("Error: fetch_stats method not found in README.md")
+    fetch_start = content.find("def fetch_stats")
+    fetch_end = content.find("return stats", fetch_start) + len("return stats")
+    print("Found fetch_stats section:")
+    print(content[fetch_start:fetch_end])
+    habits_start = content.find("def get_coding_habits")
+    habits_end = content.find("return habits", habits_start) + len("return habits")
+    print("Found get_coding_habits section:")
+    print(content[habits_start:habits_end])
     exit(1)
 else:
-    print("Successfully updated README.md with new stats")
+    print("Successfully updated README.md with new stats and habits")
 
 try:
     with open("README.md", "w", encoding="utf-8") as f:
-        f.write(new_content)
+        f.write(new_content2)
     print("README.md file written successfully!")
 except Exception as e:
     print(f"Error writing README.md: {e}")
