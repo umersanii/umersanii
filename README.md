@@ -32,7 +32,7 @@ class Sani:
         stats = {
             "total_repos": 20,
             "total_stars": 13,
-            "total_commits": 331,
+            "total_commits": 332,
             "total_pull_requests": 13,
             "total_issues": 1,
             "most_starred_repo": "eChad",
