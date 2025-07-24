@@ -32,12 +32,12 @@ class Sani:
         stats = {
             "total_repos": 20,
             "total_stars": 13,
-            "total_commits": 323,
+            "total_commits": 331,
             "total_pull_requests": 13,
             "total_issues": 1,
-            "most_starred_repo": "PakMan ⭐",
-            "most_recent_repo": "umersanii 🆕",
-            "top_language": "Python 🐍",
+            "most_starred_repo": "eChad",
+            "most_recent_repo": "umersanii",
+            "top_language": "Java",
             "days_since_last_activity": 0
         }
         return stats
@@ -45,11 +45,11 @@ class Sani:
     def get_coding_habits(self):
         # Coding habits: powered by midnight snacks and existential dread
         habits = {
-            "favorite_coding_hour": "23:00 🌙",      # Night owl status confirmed
-            "most_productive_day": "Sunday ☀️",     # Because deadlines exist
-            "commit_streak": "7 days 🔥",           # Fueled by coffee and panic
-            "coffee_dependency": "High ☕",          # Estimated caffeine requirement
-            "debug_efficiency": "Eventually 🐛🔨",   
+            "favorite_coding_hour": "19:00",      # Night owl status confirmed
+            "most_productive_day": "Sunday",     # Because deadlines exist
+            "commit_streak": "30 days",           # Fueled by coffee and panic
+            "coffee_dependency": "Medium",          # Estimated caffeine requirement
+            "debug_efficiency": "Eventually",   
         }
         return habits
 
