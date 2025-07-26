@@ -38,7 +38,7 @@ class Sani:
             "most_starred_repo": "eChad",
             "most_recent_repo": "CableManagement",
             "top_language": "Java",
-            "days_since_last_activity": 0
+            "days_since_last_activity": 1
         }
         return stats
 
