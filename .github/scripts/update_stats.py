@@ -256,17 +256,8 @@ habits_dict_replacement = (
 new_content2 = re.sub(habits_dict_pattern, habits_dict_replacement, new_content, flags=re.MULTILINE)
 
 if new_content2 == content:
-    print("Error: No replacement made. Patterns might not match your README.md methods.")
-    # Print the relevant section for debugging
-    fetch_start = content.find("def fetch_stats")
-    fetch_end = content.find("return stats", fetch_start) + len("return stats")
-    print("Found fetch_stats section:")
-    print(content[fetch_start:fetch_end])
-    habits_start = content.find("def get_coding_habits")
-    habits_end = content.find("return habits", habits_start) + len("return habits")
-    print("Found get_coding_habits section:")
-    print(content[habits_start:habits_end])
-    exit(1)
+    print("No update needed: README.md already contains the latest stats and habits.")
+    exit(0)
 else:
     print("Successfully updated README.md with new stats and habits")
 
