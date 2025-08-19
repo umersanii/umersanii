@@ -36,9 +36,9 @@ class Sani:
             "total_pull_requests": 18,
             "total_issues": 1,
             "most_starred_repo": "eChad",
-            "most_recent_repo": "umersanii",
+            "most_recent_repo": "CableManagement",
             "top_language": "Java",
-            "days_since_last_activity": 2
+            "days_since_last_activity": 3
         }
         return stats
 
