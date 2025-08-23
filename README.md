@@ -33,7 +33,7 @@ class Sani:
             "total_repos": 21,
             "total_stars": 13,
             "total_commits": 380,
-            "total_pull_requests": 18,
+            "total_pull_requests": 19,
             "total_issues": 1,
             "most_starred_repo": "eChad",
             "most_recent_repo": "CableManagement",
