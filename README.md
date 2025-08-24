@@ -32,13 +32,13 @@ class Sani:
         stats = {
             "total_repos": 20,
             "total_stars": 13,
-            "total_commits": 306,
+            "total_commits": 307,
             "total_pull_requests": 10,
             "total_issues": 1,
             "most_starred_repo": "eChad",
-            "most_recent_repo": "umersanii",
+            "most_recent_repo": "ayahskaftan",
             "top_language": "Java",
-            "days_since_last_activity": 1
+            "days_since_last_activity": 0
         }
         return stats
 
