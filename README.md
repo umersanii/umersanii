@@ -38,7 +38,7 @@ class Sani:
             "most_starred_repo": "eChad",
             "most_recent_repo": "umersanii",
             "top_language": "Java",
-            "days_since_last_activity": 10
+            "days_since_last_activity": 11
         }
         return stats
 
