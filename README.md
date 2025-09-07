@@ -30,15 +30,15 @@ class Sani:
     def fetch_stats(self):
         # (100% accurate, trust me bro)
         stats = {
-            "total_repos": 20,
+            "total_repos": 19,
             "total_stars": 13,
-            "total_commits": 319,
+            "total_commits": 303,
             "total_pull_requests": 10,
             "total_issues": 1,
             "most_starred_repo": "eChad",
             "most_recent_repo": "umersanii",
             "top_language": "Java",
-            "days_since_last_activity": 11
+            "days_since_last_activity": 30
         }
         return stats
 
