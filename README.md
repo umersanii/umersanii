@@ -26,7 +26,7 @@ class Sani:
         stats = {
             "total_repos": 34,
             "total_stars": 16,  # growing 📈
-            "total_commits": 525,  # Last Year
+            "total_commits": 548,  # Last Year
             "most_starred_repo": "eChad",
             "top_language": "Python",
         }
